@@ -1,5 +1,6 @@
 package com.equifitapp.entity;
 
+import com.equifitapp.enums.TipoDisciplina;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,4 +44,12 @@ public class Usuario {
     )
     private Set<Producto> productosPropios;
 
+    @ElementCollection
+    @CollectionTable(
+            name = "usuario_disciplina",
+            joinColumns = @JoinColumn(name = "usuario_id")
+    )
+    @Column(name = "disciplina")
+    @Enumerated(EnumType.STRING)
+    private Set<TipoDisciplina> disciplinas; //Cada usuario puede practicar varias disciplinas
 }

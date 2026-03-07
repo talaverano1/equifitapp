@@ -1,5 +1,6 @@
 package com.equifitapp.entity;
 
+import com.equifitapp.enums.TipoDisciplina;
 import com.equifitapp.enums.TipoEquipo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -40,13 +41,14 @@ public class Producto {
     @Column(nullable = false)
     private int stock;
 
-    @ManyToMany
-    @JoinTable(
+    @ElementCollection
+    @CollectionTable(
             name = "producto_disciplina",
-            joinColumns = @JoinColumns(name = "producto_id"),
-            inverseJoinColumns = @JoinColumns(name = "disciplina_id")
+            joinColumns = @JoinColumn(name = "producto_id")
     )
-    private Set<Disciplina> disciplinas;
+    @Column(name = "disciplina")
+    @Enumerated(EnumType.STRING)
+    private Set<TipoDisciplina> disciplinas; //cada producto puede ser utilizado en distintas disciplinas
 
     @OneToMany(mappedBy = "producto")
     private Set<OrdenCompraProducto> ordenCompraProducto;
