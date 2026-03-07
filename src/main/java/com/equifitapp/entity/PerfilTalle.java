@@ -23,7 +23,7 @@ public class PerfilTalle {
 
     @Enumerated(EnumType.STRING)
     @Column (nullable = false)
-    private TipoTalle tipoTalle;
+    private TipoEquipo tipoEquipo;
 
     // ===== CAMPOS PARA BOTA =====
     @Enumerated(EnumType.STRING)
