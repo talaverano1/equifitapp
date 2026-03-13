@@ -52,4 +52,7 @@ public class Usuario {
     @Column(name = "disciplina")
     @Enumerated(EnumType.STRING)
     private Set<TipoDisciplina> disciplinas; //Cada usuario puede practicar varias disciplinas
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Caballo> caballos;
 }
