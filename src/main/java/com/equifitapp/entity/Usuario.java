@@ -55,4 +55,10 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private Set<Caballo> caballos;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Orden> ordenes;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Feedback> feedbacks;
 }

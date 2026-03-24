@@ -51,5 +51,6 @@ public class Producto {
     private Set<TipoDisciplina> disciplinas; //cada producto puede ser utilizado en distintas disciplinas
 
     @OneToMany(mappedBy = "producto")
-    private Set<OrdenCompraProducto> ordenCompraProducto;
+    private Set<LineaOrden> lineasOrden;
+
 }
